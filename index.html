@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Rock, paper, scissors!</title>
 </head>
+
 <body>
     <script>
-        
+        function getComputerChoice() {
+            // gives us one option between rock, paper or scissors
+            // for the computer's choice as a string
+
+            let computerChoice = Math.floor(Math.random() * 3);
+            // gets a number between 0 and 2 
+            // and assigns it to the choice variable
+
+            switch (computerChoice) {
+                case 0:
+                    return "Rock";
+                    break;
+
+                case 1:
+                    return "Paper";
+                    break;
+
+                case 2:
+                    return "Scissors";
+                    break;
+            }
+        }
     </script>
 </body>
+
 </html>
