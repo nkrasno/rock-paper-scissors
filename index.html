@@ -8,11 +8,18 @@
 
 <body>
     <script>
-        let userChoice = prompt(
-            "Lets play rock, paper, scissors! Please choose one:",
-            "rock, paper or scissors");
+        console.log(alert("Let's play a game of rock, paper, scissors! Best out of 5 wins!"));
 
-        let userSelection = userChoice.toLowerCase().trim();
+        function getUserChoice() {
+            /*the user the prompt to choose rock paper or scissors*/
+            let userChoice = prompt(
+                "Please choose one:",
+                "rock, paper or scissors");
+            return userChoice;
+        }
+
+        //let userSelection = getUserChoice();
+        //userSelection = userSelection.toLowerCase().trim();
 
         function getComputerChoice() {
             /*gives us one option between rock, paper or scissors
@@ -37,12 +44,7 @@
             }
         }
 
-        let computerSelection = getComputerChoice();
-
-        console.log(userSelection);
-        //here to test the value of the variable, will remove later
-        console.log(computerSelection);
-        //here to test the value of the variable, will remove later
+        // let computerSelection = getComputerChoice();
 
         let userScore = 0;
         //letsPlay f will increase this by one every time user wins
@@ -86,14 +88,35 @@
 
             } else {
                 return "Something went wrong... did you spell your choice correctly?\
-                Try again! Refresh me.";
+                Try again!";
             }
         }
-        console.log(letsPlay(userSelection, computerSelection));
 
         function game() {
+            for (let i = 0; i < 5; i++) {
+                /*this for loop should get a new option from user on every iteration
+                and should get a new option for the computer as well */
+                let userSelection = getUserChoice();
+                userSelection = userSelection.toLowerCase().trim();
+
+                let computerSelection = getComputerChoice();
+
+                console.log(letsPlay(userSelection, computerSelection));
+                console.log(`The score is:\
+                    You: ${userScore}\
+                    Computer: ${computerScore}`);
+            }
+
+            if (userScore > computerScore) {
+                console.log("Congratulations! You won the game :)\ Play again? Refresh me!")
+            } else if (userScore < computerScore) {
+                console.log("The computer won! Best luck next time, refresh me for a re-match.")
+            } else {
+                console.log("Seems it was a tie! No one won.\ Play again? Refresh me!")
+            }
         }
 
+        game();
     </script>
 </body>
 
