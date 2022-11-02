@@ -15,12 +15,12 @@
         let userSelection = userChoice.toLowerCase().trim();
 
         function getComputerChoice() {
-            // gives us one option between rock, paper or scissors
-            // for the computer's choice as a string
+            /*gives us one option between rock, paper or scissors
+            for the computer's choice as a string*/
 
             let computerChoice = Math.floor(Math.random() * 3);
-            // gets a number between 0 and 2 
-            // and assigns it to the choice variable
+            /* gets a number between 0 and 2 
+            and assigns it to the computerChoice variable*/
 
             switch (computerChoice) {
                 case 0:
@@ -44,6 +44,11 @@
         console.log(computerSelection);
         //here to test the value of the variable, will remove later
 
+        let userScore = 0;
+        //letsPlay f will increase this by one every time user wins
+        let computerScore = 0;
+        //letsPlay f will increase this by one every time computer wins
+
         function letsPlay(userSelection, computerSelection) {
             if (userSelection == computerSelection) {
                 //if both chose the same option
@@ -51,36 +56,44 @@
 
             } else if (userSelection === "rock" && computerSelection === "paper") {
                 // if user chooses rock and pc choose paper
+                computerScore += 1;
                 return "Oh no, you Lose! Paper beats Rock";
 
             } else if (userSelection === "rock" && computerSelection === "scissors") {
                 // if user chooses rock and pc choose scissors
-                return "You won! Rock beats scissors";
+                userScore += 1;
+                return "You Won! Rock beats scissors";
 
             } else if (userSelection === "scissors" && computerSelection === "paper") {
                 // if user chooses scissors and pc choose paper
-                return "You won! Scissors beats paper";
+                userScore += 1;
+                return "You Won! Scissors beats paper";
 
             } else if (userSelection === "scissors" && computerSelection === "rock") {
                 // if user chooses scissors and pc choose rock
+                computerScore += 1;
                 return "Oh no, you Lose! Rock beats scissors";
 
             } else if (userSelection === "paper" && computerSelection === "rock") {
                 // if user chooses paper and pc choose rock
-                return "You won! Paper beats rock";
+                userScore += 1;
+                return "You Won! Paper beats rock";
 
             } else if (userSelection === "paper" && computerSelection === "scissors") {
                 // if user chooses paper and pc choose scissors
+                computerScore += 1;
                 return "Oh no, you Lose! Scissors beats paper";
+
             } else {
-                return "Something went wrong... did you spell your choice correctly? \
-                Try again! Refresh me."
+                return "Something went wrong... did you spell your choice correctly?\
+                Try again! Refresh me.";
             }
         }
-
-        letsPlay(userSelection, computerSelection);
-
         console.log(letsPlay(userSelection, computerSelection));
+
+        function game() {
+        }
+
     </script>
 </body>
 
