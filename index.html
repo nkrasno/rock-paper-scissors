@@ -8,14 +8,38 @@
 
 <body>
     <script>
-        console.log(alert("Let's play a game of rock, paper, scissors! Best out of 5 wins!"));
+        console.log(alert("Let's play a game of rock, paper, scissors!\nBest out of 5 wins!"));
 
         function getUserChoice() {
-            /*gives the user the prompt to choose rock paper or scissors*/
-            let userChoice = prompt(
+            /*gives the user the prompt to choose rock paper or scissors
+            and if the input is misspelled, prompts it again*/
+            let promptChoice = prompt(
+                // gets the input in
                 "Please choose one:",
                 "rock, paper or scissors");
-            return userChoice;
+
+            let userChoice = promptChoice;
+            userChoice = userChoice.toLowerCase().trim();
+            //lowercasing the user option and removing any additional space
+
+            function checkSpelling() {
+                //checks the spelling, if it's wrong it will alert the user and return true
+                if (userChoice !== "rock" &&
+                    userChoice !== "paper" &&
+                    userChoice !== "scissors") {
+                    alert(`Something went wrong... did you spell your choice correctly?
+                  Remember, the options are 'rock', 'paper' or 'scissors'
+                  Try again!`);
+                    return true;
+                }
+            }
+
+            if (checkSpelling()) {
+                //if the spelling is wrong, call the function again
+                getUserChoice();
+            } else {
+                return userChoice;
+            }
         }
 
         function getComputerChoice() {
@@ -80,29 +104,17 @@
                 // if user chooses paper and pc choose scissors
                 computerScore += 1;
                 return "Oh no, you Lose! Scissors beats paper";
-
-            } /*else {
-                return "Something went wrong... did you spell your choice correctly?\
-                Try again!";
-            }*/
+            }
         }
 
         function game() {
             for (let i = 0; i < 5; i++) {
                 /*this for loop should get a new option from user on every iteration
-                and should get a new option for the computer as well */
+                and should get a new option for the computer as well
+                it should iterate 5 times*/
                 let userSelection = getUserChoice();
-                userSelection = userSelection.toLowerCase().trim();
 
                 console.log(userSelection);
-
-                /*if (userSelection != "rock" ||
-                    userSelection != "paper" ||
-                    userSelection != "scissors") {
-                    console.log("Something went wrong... did you spell your choice correctly?\
-                Try again!");
-                    getUserChoice();
-                }*/
 
                 let computerSelection = getComputerChoice();
 
