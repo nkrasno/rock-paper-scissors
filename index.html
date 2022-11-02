@@ -11,15 +11,12 @@
         console.log(alert("Let's play a game of rock, paper, scissors! Best out of 5 wins!"));
 
         function getUserChoice() {
-            /*the user the prompt to choose rock paper or scissors*/
+            /*gives the user the prompt to choose rock paper or scissors*/
             let userChoice = prompt(
                 "Please choose one:",
                 "rock, paper or scissors");
             return userChoice;
         }
-
-        //let userSelection = getUserChoice();
-        //userSelection = userSelection.toLowerCase().trim();
 
         function getComputerChoice() {
             /*gives us one option between rock, paper or scissors
@@ -44,12 +41,10 @@
             }
         }
 
-        // let computerSelection = getComputerChoice();
-
         let userScore = 0;
-        //letsPlay f will increase this by one every time user wins
+        //letsPlay f will increase this variable by one every time user wins
         let computerScore = 0;
-        //letsPlay f will increase this by one every time computer wins
+        //letsPlay f will increase this variable by one every time computer wins
 
         function letsPlay(userSelection, computerSelection) {
             if (userSelection == computerSelection) {
@@ -86,10 +81,10 @@
                 computerScore += 1;
                 return "Oh no, you Lose! Scissors beats paper";
 
-            } else {
+            } /*else {
                 return "Something went wrong... did you spell your choice correctly?\
                 Try again!";
-            }
+            }*/
         }
 
         function game() {
@@ -99,7 +94,19 @@
                 let userSelection = getUserChoice();
                 userSelection = userSelection.toLowerCase().trim();
 
+                console.log(userSelection);
+
+                /*if (userSelection != "rock" ||
+                    userSelection != "paper" ||
+                    userSelection != "scissors") {
+                    console.log("Something went wrong... did you spell your choice correctly?\
+                Try again!");
+                    getUserChoice();
+                }*/
+
                 let computerSelection = getComputerChoice();
+
+                console.log(computerSelection);
 
                 console.log(letsPlay(userSelection, computerSelection));
                 console.log(`The score is:\
@@ -108,11 +115,11 @@
             }
 
             if (userScore > computerScore) {
-                console.log("Congratulations! You won the game :)\ Play again? Refresh me!")
+                alert("Congratulations! You won the game :)\ Play again? Refresh me!")
             } else if (userScore < computerScore) {
-                console.log("The computer won! Best luck next time, refresh me for a re-match.")
+                alert("The computer won! Best luck next time :(\ Refresh me for a re-match.")
             } else {
-                console.log("Seems it was a tie! No one won.\ Play again? Refresh me!")
+                alert("Seems it was a tie! No one won.\ Play again? Refresh me!")
             }
         }
 
