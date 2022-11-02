@@ -9,10 +9,10 @@
 <body>
     <script>
         let userChoice = prompt(
-            "Choose: rock, paper or scissors",
+            "Lets play rock, paper, scissors! Please choose one:",
             "rock, paper or scissors");
 
-        userChoice = userChoice.toLocaleLowerCase();
+        let userSelection = userChoice.toLowerCase();
 
         function getComputerChoice() {
             // gives us one option between rock, paper or scissors
@@ -37,7 +37,24 @@
             }
         }
 
-        getComputerChoice();
+        let computerSelection = getComputerChoice();
+
+        console.log(userSelection);
+        //here to test the value of the variable, will remove later
+        console.log(computerSelection);
+        //here to test the value of the variable, will remove later
+
+        function letsPlay(userSelection, computerSelection) {
+            if (userSelection == computerSelection) {
+                return "Oh no, it's a tie!";
+            } else {
+                return "Someone won but my maker didn´t did the math yet";
+            }
+        }
+
+        letsPlay(userSelection, computerSelection);
+
+        console.log(letsPlay(userSelection, computerSelection));
     </script>
 </body>
 
