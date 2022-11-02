@@ -12,7 +12,7 @@
             "Lets play rock, paper, scissors! Please choose one:",
             "rock, paper or scissors");
 
-        let userSelection = userChoice.toLowerCase();
+        let userSelection = userChoice.toLowerCase().trim();
 
         function getComputerChoice() {
             // gives us one option between rock, paper or scissors
@@ -46,9 +46,35 @@
 
         function letsPlay(userSelection, computerSelection) {
             if (userSelection == computerSelection) {
+                //if both chose the same option
                 return "Oh no, it's a tie!";
+
+            } else if (userSelection === "rock" && computerSelection === "paper") {
+                // if user chooses rock and pc choose paper
+                return "Oh no, you Lose! Paper beats Rock";
+
+            } else if (userSelection === "rock" && computerSelection === "scissors") {
+                // if user chooses rock and pc choose scissors
+                return "You won! Rock beats scissors";
+
+            } else if (userSelection === "scissors" && computerSelection === "paper") {
+                // if user chooses scissors and pc choose paper
+                return "You won! Scissors beats paper";
+
+            } else if (userSelection === "scissors" && computerSelection === "rock") {
+                // if user chooses scissors and pc choose rock
+                return "Oh no, you Lose! Rock beats scissors";
+
+            } else if (userSelection === "paper" && computerSelection === "rock") {
+                // if user chooses paper and pc choose rock
+                return "You won! Paper beats rock";
+
+            } else if (userSelection === "paper" && computerSelection === "scissors") {
+                // if user chooses paper and pc choose scissors
+                return "Oh no, you Lose! Scissors beats paper";
             } else {
-                return "Someone won but my maker didn´t did the math yet";
+                return "Something went wrong... did you spell your choice correctly? \
+                Try again! Refresh me."
             }
         }
 
