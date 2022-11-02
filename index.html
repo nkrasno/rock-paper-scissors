@@ -8,6 +8,12 @@
 
 <body>
     <script>
+        let userChoice = prompt(
+            "Choose: rock, paper or scissors",
+            "rock, paper or scissors");
+
+        userChoice = userChoice.toLocaleLowerCase();
+
         function getComputerChoice() {
             // gives us one option between rock, paper or scissors
             // for the computer's choice as a string
@@ -18,18 +24,20 @@
 
             switch (computerChoice) {
                 case 0:
-                    return "Rock";
+                    return "rock";
                     break;
 
                 case 1:
-                    return "Paper";
+                    return "paper";
                     break;
 
                 case 2:
-                    return "Scissors";
+                    return "scissors";
                     break;
             }
         }
+
+        getComputerChoice();
     </script>
 </body>
 
