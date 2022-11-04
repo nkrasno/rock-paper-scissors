@@ -11,19 +11,13 @@
         console.log(alert("Let's play a game of rock, paper, scissors!\nBest out of 5 wins!"));
 
         function getUserChoice() {
-            /*gives the user the prompt to choose rock paper or scissors
-            and if the input is misspelled, prompts it again*/
             let promptChoice = prompt(
-                // gets the input in
-                "Please choose one:",
-                "rock, paper or scissors");
+                "Please choose one:", "rock, paper or scissors");
 
             let userChoice = promptChoice;
             userChoice = userChoice.toLowerCase().trim();
-            //lowercasing the user option and removing any additional space
 
             function checkSpelling() {
-                //checks the spelling, if it's wrong it will alert the user and return true
                 if (userChoice !== "rock" &&
                     userChoice !== "paper" &&
                     userChoice !== "scissors") {
@@ -35,7 +29,6 @@
             }
 
             if (checkSpelling()) {
-                //if the spelling is wrong, call the function again
                 getUserChoice();
             } else {
                 return userChoice;
@@ -43,12 +36,7 @@
         }
 
         function getComputerChoice() {
-            /*gives us one option between rock, paper or scissors
-            for the computer's choice as a string*/
-
             let computerChoice = Math.floor(Math.random() * 3);
-            /* gets a number between 0 and 2 
-            and assigns it to the computerChoice variable*/
 
             switch (computerChoice) {
                 case 0:
@@ -66,64 +54,50 @@
         }
 
         let userScore = 0;
-        //letsPlay f will increase this variable by one every time user wins
         let computerScore = 0;
-        //letsPlay f will increase this variable by one every time computer wins
 
-        function letsPlay(userSelection, computerSelection) {
+        function getWinnerForEachRound(userSelection, computerSelection) {
             if (userSelection == computerSelection) {
-                //if both chose the same option
                 return "Oh no, it's a tie!";
 
             } else if (userSelection === "rock" && computerSelection === "paper") {
-                // if user chooses rock and pc choose paper
                 computerScore += 1;
                 return "Oh no, you Lose! Paper beats Rock";
 
             } else if (userSelection === "rock" && computerSelection === "scissors") {
-                // if user chooses rock and pc choose scissors
                 userScore += 1;
                 return "You Won! Rock beats scissors";
 
             } else if (userSelection === "scissors" && computerSelection === "paper") {
-                // if user chooses scissors and pc choose paper
                 userScore += 1;
                 return "You Won! Scissors beats paper";
 
             } else if (userSelection === "scissors" && computerSelection === "rock") {
-                // if user chooses scissors and pc choose rock
                 computerScore += 1;
                 return "Oh no, you Lose! Rock beats scissors";
 
             } else if (userSelection === "paper" && computerSelection === "rock") {
-                // if user chooses paper and pc choose rock
                 userScore += 1;
                 return "You Won! Paper beats rock";
 
             } else if (userSelection === "paper" && computerSelection === "scissors") {
-                // if user chooses paper and pc choose scissors
                 computerScore += 1;
                 return "Oh no, you Lose! Scissors beats paper";
             }
         }
 
-        function game() {
+        function playGame() {
             for (let i = 0; i < 5; i++) {
-                /*this for loop should get a new option from user on every iteration
-                and should get a new option for the computer as well
-                it should iterate 5 times*/
-                let userSelection = getUserChoice();
 
-                console.log(userSelection);
+                let userSelection = getUserChoice();
+                console.log(`You've chosen ${userSelection}`);
 
                 let computerSelection = getComputerChoice();
+                console.log(`The computer chose ${computerSelection}`);
 
-                console.log(computerSelection);
-
-                console.log(letsPlay(userSelection, computerSelection));
+                console.log(getWinnerForEachRound(userSelection, computerSelection));
                 console.log(`The score is:\
-                    You: ${userScore}\
-                    Computer: ${computerScore}`);
+                    You: ${userScore}\nComputer: ${computerScore}`);
             }
 
             if (userScore > computerScore) {
@@ -135,7 +109,7 @@
             }
         }
 
-        game();
+        playGame();
     </script>
 </body>
 
